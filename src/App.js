@@ -2,18 +2,33 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import $ from 'jquery';
 import Header from './components/Header';
+import User from './components/User';
+import Photos from './components/Photos';
 import Content from './components/Content';
 import AddCourse from './components/AddCourse';
 import './App.css';
-import {Link, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 
 class App extends Component {
   state = {
-    courses: []
+    courses: [],
+    kursus: []
   }
   getCourses(){
     $.ajax({
-      url: 
+      url: 'https://my-json-server.typicode.com/samid77/coursesAPI/courses',
+      dataType: 'json',
+      cache: false,
+      success: function(data){
+        this.setState({
+          kursus: data
+        }, function(){
+          console.log(this.state);
+        });
+      }.bind(this), 
+        error: function(xhr, status, err){
+          console.log(err);
+        }
     });
   }
   getContent(){
@@ -61,9 +76,11 @@ class App extends Component {
   }
   componentWillMount(){
     this.getCourses();
+    this.getContent();
   }
   componentDidMount(){
     this.getCourses();
+    this.getContent();
   }
   handleSubmitData(course){
     let courses = this.state.courses;
@@ -86,6 +103,8 @@ class App extends Component {
         <Header />
         <Route exact path="/" render={(props) => <Content courses={this.state.courses} onDelete={this.handleDeleteCourse.bind(this)}/>}></Route>
         <Route path="/addcourse" render={(props) => <AddCourse addCourse={this.handleSubmitData.bind(this)}/>}></Route>
+        <Route path="/user" component={User}></Route>
+        <Route path="/photos" component={Photos}></Route>
       </div>
     );
   }
