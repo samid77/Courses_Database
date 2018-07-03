@@ -6,13 +6,28 @@ import User from './components/User';
 import Photos from './components/Photos';
 import Content from './components/Content';
 import AddCourse from './components/AddCourse';
+import Login from './components/Login';
+import Welcome from './components/Welcome';
+import ToDo from './components/ToDo';
+import Dropdown from './components/Dropdown';
+import Dropdown2 from './components/Dropdown2';
+import Bitcoin from './components/Bitcoin';
+import BTCToRp from './components/BTCToRp';
+import RpToBTC from './components/RpToBTC';
+import soccerPlayer from './components/soccerPlayer';
+import Weather from './components/Weather';
 import './App.css';
 import {Route} from 'react-router-dom';
 
 class App extends Component {
   state = {
     courses: [],
-    kursus: []
+    kursus: [],
+  }
+  ambilNama = (namaku) => {
+    this.setState({
+      welcomename: namaku,
+    });
   }
   getCourses(){
     $.ajax({
@@ -23,7 +38,7 @@ class App extends Component {
         this.setState({
           kursus: data
         }, function(){
-          console.log(this.state);
+          // console.log(this.state);
         });
       }.bind(this), 
         error: function(xhr, status, err){
@@ -105,6 +120,16 @@ class App extends Component {
         <Route path="/addcourse" render={(props) => <AddCourse addCourse={this.handleSubmitData.bind(this)}/>}></Route>
         <Route path="/user" component={User}></Route>
         <Route path="/photos" component={Photos}></Route>
+        <Route path="/todo" component={ToDo}></Route>
+        <Route path="/dropdown" component={Dropdown}></Route>
+        <Route path="/dropdown2" component={Dropdown2}></Route>
+        <Route path="/login" component={Login}></Route>
+        <Route path="/welcome" component={Welcome}></Route>
+        <Route path="/soccer" component={soccerPlayer}></Route>
+        <Route path="/indexbtc" component={Bitcoin}></Route>
+        <Route path="/BTCToRp" component={BTCToRp}></Route>
+        <Route path="/RpToBTC" component={RpToBTC}></Route>
+        <Route path="/weather" component={Weather}></Route>
       </div>
     );
   }
