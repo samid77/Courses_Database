@@ -10,7 +10,7 @@ class soccerPlayer extends Component {
     console.log(this.refs.club.value);
     const keyword = this.refs.club.value;
     e.preventDefault();
-    axios(`https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?t=${keyword}`).then((getData) => {
+    axios.get(`https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?t=${keyword}`).then((getData) => {
         console.log(getData.data.player)
         this.setState({
             playerList: getData.data.player,

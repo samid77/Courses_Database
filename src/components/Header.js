@@ -30,6 +30,9 @@ class Header extends Component {
                                     <li><Link to="/soccer">Soccer Player Database</Link></li>
                                     <li><Link to="/indexbtc">Bitcoin Conversion API</Link></li>
                                     <li><Link to="/weather">Weather</Link></li>
+                                    <li><Link to="/exerciseAPI">exerciseAPI</Link></li>
+                                    <li><Link to="/APIexercise">API Exercise</Link></li>
+                                    <li><Link to="/WorldCup">World Cup API</Link></li>
                                 </ul>
                             </li>
                             <li className="dropdown">

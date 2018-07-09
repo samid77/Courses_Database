@@ -4,7 +4,9 @@ import axios from 'axios';
 
 class RpToBTC extends Component {
    state = {
-       
+        rupiahValue: undefined,
+        input: undefined,
+        hasil: undefined   
    }
    componentDidMount() {
        axios.get('https://blockchain.info/tobtc?currency=USD&value=500').then((getData) => {

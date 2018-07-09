@@ -16,6 +16,10 @@ import BTCToRp from './components/BTCToRp';
 import RpToBTC from './components/RpToBTC';
 import soccerPlayer from './components/soccerPlayer';
 import Weather from './components/Weather';
+import exerciseAPI from './components/exerciseAPI';
+import APIexercise from './components/APIexercise';
+import WorldCup from './components/WorldCup';
+
 import './App.css';
 import {Route} from 'react-router-dom';
 
@@ -130,6 +134,9 @@ class App extends Component {
         <Route path="/BTCToRp" component={BTCToRp}></Route>
         <Route path="/RpToBTC" component={RpToBTC}></Route>
         <Route path="/weather" component={Weather}></Route>
+        <Route path="/exerciseAPI" component={exerciseAPI}></Route>
+        <Route path="/APIexercise" component={APIexercise}></Route>
+        <Route path="/WorldCup" component={WorldCup}></Route>
       </div>
     );
   }

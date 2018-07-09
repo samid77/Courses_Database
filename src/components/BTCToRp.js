@@ -4,6 +4,9 @@ import axios from 'axios';
 
 class BTCToRp extends Component {
    state = {
+       btcValue : undefined,
+       nilaiInput: undefined,
+       hasil: undefined
    }
    componentDidMount(){
     axios.get('https://blockchain.info/tobtc?currency=USD&value=500').then((getData) => {
@@ -16,7 +19,6 @@ class BTCToRp extends Component {
    hitungNilai = (e) => {
     var inputan = this.refs.btc.value;
     var nilai = (inputan * this.state.btcValue);
-
     this.setState({
         nilaiInput : inputan,
         hasil : nilai,

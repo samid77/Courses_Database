@@ -6,10 +6,8 @@ class Bitcoin extends Component {
    state = {
        hargaBeli : '',
        hargaJual : '',
-       beliAUD: '',
-       jualAUD: '',
    }
-   componentDidMount(){
+   componentDidMount = () =>{
     axios.get('https://blockchain.info/ticker').then((getData) => {
         console.log(getData);
         this.setState({
